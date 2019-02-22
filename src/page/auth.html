@@ -7,7 +7,13 @@
     #include('graph.htm')
     <title>Wire</title>
   </head>
-
+  <script>
+    if (new URL(window.location.href).searchParams.get('enableLogging') === 'true') {
+      localStorage.setItem('debug', '@wireapp/*');
+    } else {
+      localStorage.removeItem('debug');
+    }
+  </script>
   <body>
     <div id="main"></div>
     <script src="/config.js?{{@config.VERSION}}"></script>
